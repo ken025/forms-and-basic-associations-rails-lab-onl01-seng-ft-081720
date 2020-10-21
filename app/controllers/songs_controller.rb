@@ -12,12 +12,12 @@ class SongsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @song = Song.new(song_params)
 
     if @song.save
       redirect_to @song
     else
+
       render :new
     end
   end
@@ -32,6 +32,7 @@ class SongsController < ApplicationController
     if @song.save
       redirect_to @song
     else
+
       render :edit
     end
   end
@@ -40,6 +41,7 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     @song.destroy
     flash[:notice] = "Song deleted."
+    
     redirect_to songs_path
   end
 
